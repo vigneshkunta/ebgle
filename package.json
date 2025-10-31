@@ -1,22 +1,44 @@
 {
   "name": "ebgle",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0 -p 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "server": "node server/index.js",
+    "dev:all": "concurrently \"npm run server\" \"npm run dev\"",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "next": "16.0.1"
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "next": "16.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.1"
-  }
+    "concurrently": "^9.2.1",
+    "eslint": "^9.8.0",
+    "eslint-config-next": "16.0.1",
+    "tailwindcss": "^4.2.1",
+    "@tailwindcss/postcss": "^4.0.0",
+    "postcss": "^8.4.26",
+    "autoprefixer": "^10.4.14"
+  },
+  "description": "Next.js Omegle-like clone using WebRTC and Socket.IO",
+  "keywords": [
+    "omegle",
+    "video-chat",
+    "nextjs",
+    "socket.io",
+    "webrtc"
+  ],
+  "author": "",
+  "license": "ISC"
 }
